@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>pv", "<cmd>Oil<cr>", { desc = "Open parent directory" })
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -27,6 +27,13 @@ vim.keymap.set("x", "<leader>p", [["_dP]])
 -- next greatest remap ever : asbjornHaland
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
+
+-- copy current file path to clipboard
+vim.keymap.set("n", "<leader>yp", function()
+    local path = vim.fn.expand("%:.")
+    vim.fn.setreg("+", path)
+    print("Copied path: " .. path)
+end, { desc = "Copy relative file path to clipboard" })
 
 vim.keymap.set({ "n", "v" }, "<leader>d", "\"_d")
 
