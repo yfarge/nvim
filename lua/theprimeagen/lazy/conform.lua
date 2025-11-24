@@ -28,6 +28,10 @@ return {
                     args = { "prettier", "--stdin-filepath", "$FILENAME" },
                 },
             },
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = false,
+            },
         })
 
         -- Keymap for manual formatting
