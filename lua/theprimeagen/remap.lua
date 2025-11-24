@@ -80,6 +80,6 @@ vim.keymap.set("n", "<leader>ca", function()
 end)
 
 vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
+    vim.cmd("source ~/.config/nvim/init.lua")
 end)
 
